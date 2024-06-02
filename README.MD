@@ -8,8 +8,8 @@ This bot plays the game of C.A.T.S, for now it supports:
 2. LeagueFights
 3. Championship
 
-> [!NOTE]  
-> This bot suppors the new images changes from cats.
+> [!NOTE]
+> This bot supports the new images changes from cats.
 
 ## Installation
 
