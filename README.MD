@@ -8,7 +8,8 @@ This bot plays the game of C.A.T.S, for now it supports:
 2. LeagueFights
 3. Championship
 
-For now you can only switch modes commenting and descommeting the code, in future versions I will add a menu for this.
+> [!NOTE]  
+> This bot suppors the new images changes from cats.
 
 ## Installation
 

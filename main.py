@@ -151,11 +151,26 @@ def  championshipAll(gameRegion):
         championship(gameRegion)
 
 def main():
-    gameRegion = obtainGameRegion()
+    while True:
+        try:
+            print("1. QuickFights")
+            print("2. LeagueFights")
+            print("3. Championships")
 
-    quickFightAll(gameRegion)
-    # leagueFightAll(gameRegion)
-    # championshipAll(gameRegion)
+            num = int(input("Please enter the task you want to do with the bot: \n"))
+
+            if(num >= 4):
+                raise ValueError()
+
+            gameRegion = obtainGameRegion()
+            if(num == 1):
+                quickFightAll(gameRegion)
+            if(num == 2):
+                leagueFightAll(gameRegion)
+            if(num == 3):
+                championshipAll(gameRegion)
+        except ValueError:
+            print("Invalid input, please prove a valid one")
 
 if __name__ == "__main__":
     main()
