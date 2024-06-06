@@ -52,30 +52,31 @@ def leagueFight(gameRegion):
     click(xM, yM)
 
     # wait until the battle is finished and press the escape key
-    (x,y) = obtainWaitCords("ok", gameRegion.toTuple())
+    obtainWaitCords("ok", gameRegion.toTuple())
     press("escape", interval=3)
 
     # we press the continue button or the ok one
+    # sleep(3)
+    isContination = isVisible("continue", gameRegion.toTuple())
+
+    while(isContination == True):
+        (x,y) = obtainWaitCords("continue", gameRegion.toTuple())
+        click(x, y)
+        sleep(2)
+        isContination = isVisible("continue", gameRegion.toTuple())
+
+    sleep(1)
 
     isFinished = isVisible("ok", gameRegion.toTuple())
-    isContination = isVisible("continue", gameRegion.toTuple())
     isLose = isVisible("lose", gameRegion.toTuple())
 
-    while(True):
-        logging.debug(f"isLose: {isLose}")
-        if(isContination):
-            (x,y) = obtainWaitCords("continue", gameRegion.toTuple())
-            click(x, y)
-            break
-        if(isFinished or isLose):
-            logging.debug("Exit this run beause it finished or we lose it")
-            sleep(3)
-            press("escape")
-            press("escape", interval=3)
-            return
-        isFinished = isVisible("ok", gameRegion.toTuple())
-        isContination = isVisible("continue", gameRegion.toTuple())
-        isLose = isVisible("lose", gameRegion.toTuple())
+    print(f"Is finish: {isFinished} - lost: {isLose}")
+
+    if(isFinished or isLose):
+        logging.debug("Exit this run beause it finished or we lose it")
+        sleep(2)
+        press("escape", interval = 4)
+        press("escape", interval = 3)
 
 def leagueFightAll(gameRegion):
     # click on the arrow button

@@ -6,7 +6,7 @@ from pyautogui import locateCenterOnScreen,locateOnScreen
 def obtainCords(fileName, center = True, region = None):
     try:
         filePath = f"pics/{fileName}.png"
-        confidence = 0.9
+        confidence = 0.92
         return locateCenterOnScreen(filePath, confidence = confidence, region= region) if center else locateOnScreen(filePath, confidence=confidence, region=region)
         # logging.debug(region)
     except:
@@ -19,7 +19,8 @@ def obtainWaitCords(fileName, region):
     while(total < maxTotal):
         try:
             filePath = f"pics/{fileName}.png"
-            confidence = 0.9
+            confidence = 0.92
+            logging.debug(f"Finding: {fileName}")
             return locateCenterOnScreen(filePath, confidence = confidence, region= region)
             # logging.debug(region)
         except:
@@ -32,7 +33,7 @@ def obtainWaitCords(fileName, region):
 def isInMenu(region):
         filePath = f"pics/menu.png"
         try:
-            confidence = 0.9
+            confidence = 0.92
             locateCenterOnScreen(filePath, confidence = confidence, region= region)
             return True
         except:
@@ -41,7 +42,7 @@ def isInMenu(region):
 def isVisible(file, region):
         filePath = f"pics/{file}.png"
         try:
-            confidence = 0.9
+            confidence = 0.92
             locateCenterOnScreen(filePath, confidence = confidence, region= region)
             return True
         except:
